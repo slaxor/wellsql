@@ -1,0 +1,16 @@
+-- SQLStatement: simple
+SELECT * FROM foo WHERE {{.Filter}}
+
+-- SQLStatement: multiLine
+SELECT * FROM foo WHERE {{.Filter}}
+SORT BY {{.SortBy}}
+
+-- SQLStatement: empty
+
+-- SQLStatement: withRange
+SELECT {{range $v := .Fields}}{{$v}} {{else}}* {{end}} FROM foo
+
+-- SQLStatement: lastInFile
+INSERT INTO foo (v1, v2, v3) VALUES (
+'{{.V1}}', 'Val2', '{{.V3}}')
+
