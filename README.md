@@ -5,15 +5,15 @@ Have the SQL Statement neatly in a template file in your Golang project
 
 ## Use
 ####your_statements.sql.tmpl:
-
-    -- SQLStatement:
-    nameOfYourSQLInAnyWordChar SELECT OR INSERT OR ANY OTHER SQL ALSO with
+```sql
+    -- SQLStatement: nameOfYourSQLInAnyWordChar
+    SELECT OR INSERT OR ANY OTHER SQL ALSO with
     {{.Text}} {{.Template}} {{.Variability}} 
     -- SQLStatement: YourNextSQL
     ...
-    
+```    
 ####main.go
-
+```go
     package main
     import (
         "log"
@@ -29,3 +29,4 @@ Have the SQL Statement neatly in a template file in your Golang project
 	    c := struct{ Cond string }{"foo"}
 	    log.Printf("%q", sqlMap["selectFromFoo"](c))
     }
+```
